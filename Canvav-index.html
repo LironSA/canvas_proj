@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mister Canvas</title>
+    <link href="css/style.css" rel="stylesheet">
+    <title>proj paint</title>
+
+</head>
+
+<body onload="init()">
+
+
+    <form class="form form-Prefs" onsubmit="return false">
+
+        <lable for="colorTxt">Select color</lable>
+        <input class="txtColor" type="color" id="colorShape" />
+        <button class="set-colors" onclick="onSetColors()">Change colors</button><br>
+        <button onclick="saveCanvas()">Save</button>
+        <button onclick="clearCanvas()">Clear</button>
+        <button onclick="about()">About</button>
+
+        <br>
+        <br>
+    </form>
+
+    <div class="gallery flex space-around">
+        <button onclick="onSelectShape('triangle')">Triangle</button>
+        <button onclick="onSelectShape('rect')">Rect</button>
+        <!-- <button onclick="onSelectShape('text')">Text</button> -->
+    </div>
+
+    <canvas class="myCanvas mouse" id="myCanvas" width="800" height="600" style="outline:1px solid green"
+        onmousedown="onPenDown(event)" onmouseup="onPenUp(event)" onmousemove="onPenMove(event)"
+        ontouchstart="handleTouch(event)" ontouchend="handleTouch(event)" ontouchmove="handleTouch(event)"></canvas>
+    </canvas>
+    
+    <a href="#" onclick="downloadCanvas(this)" download="">Download</a><br>
+
+    <!-- <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)" /> -->
+
+    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+        <input name="img" id="imgData" type="hidden" />
+        <button class="btn" type="submit">Publish</button>
+        <div class="share-container"></div>
+    </form>
+
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
